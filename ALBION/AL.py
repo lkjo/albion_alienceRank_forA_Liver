@@ -125,10 +125,10 @@ def main():#主程式啟動
         tab_element.click()
     readExcel(nameSet,int(xmlData['score']))
     driver.quit()
-    
+
 try:
     main()
 except Exception as e:
     f = open('錯誤訊息.txt','w')
-    f.write(i)
+    f.write(e)
     f.close()
