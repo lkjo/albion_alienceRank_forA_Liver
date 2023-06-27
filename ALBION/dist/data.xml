@@ -1,0 +1,17 @@
+<data>
+    <dataName>AL.xlsx</dataName><!--自訂義excel檔案名稱-->
+    <alience>A_LIVER</alience><!--公會名稱-->
+    <checkIp>0</checkIp><!--是否需要檢查ip是否足夠，1為要0為不要-->
+    <standardIp>1300</standardIp><!--ip高低-->
+    <web>https://east.albionbattles.com/battles/80018397</web><!--網址-->
+    <chrome>C:\Program Files\Google\Chrome Beta\Application\chrome.exe</chrome><!--chrome.exe位置-->
+    <score>1000</score><!--要加多少分-->
+    <actType>L</actType>
+    <!--活動類型
+        K:哨站
+        L:CTA
+        M:AVA
+        N:抓雞
+        O:運貨
+    -->
+</data>
