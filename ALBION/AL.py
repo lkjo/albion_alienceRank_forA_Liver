@@ -31,8 +31,8 @@ def readXml():#讀取xml並將必須資料進行回傳
         key, value = element.tag,element.text
         dataDict[key] = value
     return dataDict
-def readExcel(nameSet = set(),score = 0):#讀取excel並寫入積分
-    target = "AL人事.xlsx"
+def readExcel(nameSet = set(),score = 0,dataName = ""):#讀取excel並寫入積分
+    target = dataName
     wb = load_workbook(target)
     sheet = wb['積分表格']
     nameList = sheet.iter_rows()
@@ -54,10 +54,10 @@ def readExcel(nameSet = set(),score = 0):#讀取excel並寫入積分
         sheet.cell(row = count,column=5, value=str(score))
         count += 1
         nameSet.pop(0)
-    wb.save("AL人事.xlsx")
+    wb.save(dataName)
 def main():#主程式啟動
     try:
-        a = ['alience','checkIp','standardIp','web','chrome','score','actType']
+        a = ['alience','checkIp','standardIp','web','chrome','score','actType','dataName']
         xmlData = readXml()
         test = xmlData.keys()
         if len(test) != len(a):
@@ -123,7 +123,7 @@ def main():#主程式啟動
             pass
         tab_element = tab_elements[-2].find_element(By.TAG_NAME,'a')
         tab_element.click()
-    readExcel(nameSet,int(xmlData['score']))
+    readExcel(nameSet,int(xmlData['score']),xmlData['dataName'])
     driver.quit()
 
 try:
