@@ -42,7 +42,9 @@ def readExcel(nameSet = set(),score = 0,dataName = ""):#讀取excel並寫入積�
             break
         print(sheet[cell[4].coordinate].value)
         if cell[0].value.upper() in nameSet:
+            print(sheet[cell[4].coordinate].value,sheet[cell[5].coordinate].value)
             tempA,tempB = str(int(sheet[cell[4].coordinate].value) + score),str(int(sheet[cell[5].coordinate].value) + score)
+            # print(tempA,tempB)
             sheet[cell[4].coordinate] = tempA
             sheet[cell[5].coordinate] = tempB
             nameSet.remove(cell[0].value.upper())
@@ -50,8 +52,8 @@ def readExcel(nameSet = set(),score = 0,dataName = ""):#讀取excel並寫入積�
     nameSet = list(nameSet)
     while nameSet:
         sheet.cell(row = count,column=1, value=nameSet[0])
-        sheet.cell(row = count,column=4, value=str(score))
         sheet.cell(row = count,column=5, value=str(score))
+        sheet.cell(row = count,column=6, value=str(score))
         count += 1
         nameSet.pop(0)
     wb.save(dataName)
@@ -130,5 +132,6 @@ try:
     main()
 except Exception as e:
     f = open('錯誤訊息.txt','w')
-    f.write(e)
+    f.write(str(e))
     f.close()
+    time.sleep(1)
